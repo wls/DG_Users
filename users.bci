@@ -1,0 +1,18 @@
+00005 margin 0
+00010 dim A$*32767
+00012 input T$
+00015 print time$;"...";
+00020 filestatus s a ":SDD:UDD:+" into A$
+00030 print time$
+00040 print
+00050 let COUNT=0
+00060 let P=pos(A$,chr$(10))
+00065 if P=0 then stop
+00070 let L$=A$(1:P-1)
+00080 let A$=A$(P+1:len(A$))
+00090 if L$(23:25)="CPD" and pos(L$(3:17),T$)>0 then
+00091   let COUNT=COUNT+1
+00092   print L$(3:17);" ";
+00093 end if
+00100 goto 00060
+00999 end
